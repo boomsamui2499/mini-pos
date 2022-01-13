@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { CategoryComponent } from './category/category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     HomeComponent,
     AddProductComponent,
     CategoryComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    EditProductComponent,
+    EditCategoryComponent
   ],
   imports: [
     BrowserModule,

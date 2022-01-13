@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -8,7 +9,9 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private apiServiceService:ApiServiceService) { 
+  constructor(
+    private apiServiceService:ApiServiceService,
+    private router:Router) { 
 
   }
 
@@ -22,9 +25,9 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  editProduct() {
+  editProduct(id: number) {
     console.log('edit');
-    
+    this.router.navigateByUrl('/product_edit/' + id)
   }
   deleteProduct(id: number, index: number) {
     console.log(id);

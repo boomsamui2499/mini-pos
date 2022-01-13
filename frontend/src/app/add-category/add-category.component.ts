@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
@@ -8,7 +9,9 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class AddCategoryComponent implements OnInit {
 
-  constructor(private apiServiceService:ApiServiceService) { }
+  constructor(
+    private apiServiceService:ApiServiceService,
+    private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -16,7 +19,8 @@ export class AddCategoryComponent implements OnInit {
   getCategortFormData(dataAdd:any) {      
     console.log(dataAdd);
     this.apiServiceService.addCategory(dataAdd).subscribe((res) => {
-      console.log(res);        
+      console.log(res);
+      this.router.navigateByUrl('/category') 
     })
   }
 }

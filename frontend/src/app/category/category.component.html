@@ -21,7 +21,7 @@
             <tr *ngFor="let category of categoryList; let i = index">
                 <th>{{ category.catagory_id }}</th>
                 <th>{{ category.catagory_name }}</th>
-                <th><a class="btn btn-primary" (click)="editCategory()">ลบ</a></th>
+                <th><a class="btn btn-primary" (click)="editCategory(category.catagory_id)">แก้ไข</a></th>
                 <th><a class="btn btn-danger" (click)="deleteCategory(category.catagory_id, i)">ลบ</a></th>
             </tr>
         </table>

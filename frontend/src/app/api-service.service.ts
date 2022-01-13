@@ -19,10 +19,16 @@ export class ApiServiceService {
     return this.http.post(this.url + 'product/add', data)
   }
 
+  editProduct(data: any, updatedBody: any) {
+    const endpointURL = this.url + 'product/' + data + '/update'
+    return this.http.put(endpointURL, updatedBody)
+  }
+
   deleteProduct(data: any, updatedBody: any) {
     const endpointURL = this.url + 'product/' + data + '/delete'
     return this.http.put(endpointURL, updatedBody)
   }
+
 
   getCategory() {
     return this.http.get(this.url + 'catagory');
@@ -30,6 +36,11 @@ export class ApiServiceService {
 
   addCategory(data: any) {
     return this.http.post(this.url + 'catagory/add', data)
+  }
+
+  editCategory(data: any, updatedBody: any) {
+    const endpointURL = this.url + 'catagory/' + data + '/update'
+    return this.http.put(endpointURL, updatedBody)
   }
 
   deleteCategory(data: any, updatedBody: any) {
