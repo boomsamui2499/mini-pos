@@ -23,8 +23,12 @@ class Cors
             'Access-Control-Allow-Methods:  POST, PUT'
         ];
         if ($request->getMethod() == "OPTIONS") {
-            # code...
+            return response()->json('OK', 200, $headers);
         }
-        return $next($request);
+        $response = $next($request);
+        foreach ($headers as $key => $value) {
+            $response->header($key, $value);
+        }
+        return $response;
     }
 }
