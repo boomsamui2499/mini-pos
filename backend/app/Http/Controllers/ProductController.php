@@ -24,6 +24,19 @@ class ProductController extends Controller
       "data" => $data
     ]);
   }
+
+
+  public function showFitterCatagory($id)
+  {
+    $data = DB::table('products')->select('*')->where('active', 1)->where('catagory_id', $id)->get();
+
+    // $products = Product::all();
+    return response()->json([
+      "success" => true,
+      "message" => "Product List",
+      "data" => $data
+    ]);
+  }
   public function search($name)
   {
     $data = DB::table('products')->select('*')->where('product_name', 'LIKE', "%$name%")->get();

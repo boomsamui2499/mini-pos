@@ -24,6 +24,7 @@ Route::get('/token', function () {
 // Route::resource('product', 'App\Http\Controller\ProductController');
 Route::get('/product', [ProductController::class, 'index']);
 Route::get('/product/search/{name}', [ProductController::class, 'search']);
+Route::get('/product/searchCatagory/{id}', [ProductController::class, 'showFitterCatagory']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
 Route::post('/product/add', [ProductController::class, 'add']);
 Route::put('/product/{id}/update', [ProductController::class, 'update']);
