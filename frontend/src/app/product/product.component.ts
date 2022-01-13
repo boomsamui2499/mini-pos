@@ -26,11 +26,11 @@ export class ProductComponent implements OnInit {
     console.log('edit');
     
   }
-  deleteProduct(id: number) {
+  deleteProduct(id: number, index: number) {
     console.log(id);
     this.apiServiceService.deleteProduct(id, 'delete').subscribe(res => {
       console.log(res);
-      
+    this.productList.splice(index, 1)
     })
   }
 

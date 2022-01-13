@@ -20,13 +20,13 @@
                 <th>แก้ไข</th>
                 <th>ลบ</th>
             </tr>
-            <tr *ngFor="let product of productList">
+            <tr *ngFor="let product of productList;let i = index">
                 <th>{{ product.product_id }}</th>
                 <th></th>
                 <th>{{ product.product_name }}</th>
                 <th>{{ product.product_price }}</th>
                 <th><a class="btn btn-primary" (click)="editProduct()">ลบ</a></th>
-                <th><a class="btn btn-danger" (click)="deleteProduct(product.product_id)">ลบ</a></th>
+                <th><a class="btn btn-danger" (click)="deleteProduct(product.product_id, i)">ลบ</a></th>
             </tr>
         </table>
     </div>

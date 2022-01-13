@@ -27,5 +27,14 @@ export class ApiServiceService {
   getCategory() {
     return this.http.get(this.url + 'catagory');
   }
+
+  addCategory(data: any) {
+    return this.http.post(this.url + 'catagory/add', data)
+  }
+
+  deleteCategory(data: any, updatedBody: any) {
+    const endpointURL = this.url + 'catagory/' + data + '/delete'
+    return this.http.put(endpointURL, updatedBody)
+  }
   
 }

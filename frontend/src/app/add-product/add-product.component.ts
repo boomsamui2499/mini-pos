@@ -8,14 +8,12 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class AddProductComponent implements OnInit {
 
-  constructor(private apiServiceService:ApiServiceService) {
-  
-  }
+  constructor(private apiServiceService:ApiServiceService) { }
 
   ngOnInit(): void {
-
+    const url ="https://myurl.com/nextpage/";
   }
-  
+
   getProductFormData(dataAdd:any) {      
     console.log(dataAdd);
     this.apiServiceService.addProduct(dataAdd).subscribe((res) => {

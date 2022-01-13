@@ -17,8 +17,12 @@ export class CategoryComponent implements OnInit {
     console.log("edit");
     
   }
-  deleteCategory() {
-    console.log('delete');
+  deleteCategory(id: number, index: number) {
+    console.log(id);
+    this.apiServiceService.deleteCategory(id, 'delete').subscribe(res => {
+      console.log(res);
+    this.categoryList.splice(index, 1)
+    })
   }
 
   ngOnInit(): void {

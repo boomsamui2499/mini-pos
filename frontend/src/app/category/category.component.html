@@ -10,7 +10,7 @@
     </div>
 
     <div class="table-top">
-        <a href="/product_create" class="btn btn-primary" style="margin: 5px 0px 15px 0px; float: right;">+ เพิ่มใหม่</a>
+        <a href="/category_create" class="btn btn-primary" style="margin: 5px 0px 15px 0px; float: right;">+ เพิ่มใหม่</a>
         <table class="table-products">
             <tr>
                 <th>#</th>
@@ -22,7 +22,7 @@
                 <th>{{ category.catagory_id }}</th>
                 <th>{{ category.catagory_name }}</th>
                 <th><a class="btn btn-primary" (click)="editCategory()">ลบ</a></th>
-                <th><a class="btn btn-danger" (click)="deleteCategory()">ลบ</a></th>
+                <th><a class="btn btn-danger" (click)="deleteCategory(category.catagory_id, i)">ลบ</a></th>
             </tr>
         </table>
     </div>
