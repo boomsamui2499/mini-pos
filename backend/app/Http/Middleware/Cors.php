@@ -18,9 +18,8 @@ class Cors
     {
         header('Access-Control-Allow-Origin:  *');
         $headers = [
-            'Access-Control-Allow-Origin:  http://localhost:4200',
             'Access-Control-Allow-Headers:  Content-Type, X-Auth-Token, Authorization, Origin',
-            'Access-Control-Allow-Methods:  POST, PUT'
+            'Access-Control-Allow-Methods' => 'POST, GET, OPTION, PUT, DELETE',
         ];
         if ($request->getMethod() == "OPTIONS") {
             return response()->json('OK', 200, $headers);
