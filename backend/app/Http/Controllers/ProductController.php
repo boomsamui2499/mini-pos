@@ -41,6 +41,7 @@ class ProductController extends Controller
     $data = null;
     $product_name = $request->input('product_name');
     $product_price = $request->input('product_price');
+    $product_cost = $request->input('product_cost');
     $product_key = $request->input('product_key');
     $catagory_id = $request->input('catagory_id');
     $type_id = $request->input('type_id');
@@ -56,6 +57,7 @@ class ProductController extends Controller
         $data = DB::table('products')->insert([
           'product_name' => $product_name,
           'product_price' => $product_price,
+          'product_cost' => $product_cost,
           'product_key' => $product_key,
           'catagory_id' => $catagory_id,
           'type_id' => $type_id,
@@ -68,6 +70,7 @@ class ProductController extends Controller
         $data = DB::table('products')->insert([
           'product_name' => $product_name,
           'product_price' => $product_price,
+          'product_cost' => $product_cost,
           'product_key' => $product_key,
           'catagory_id' => $catagory_id,
           'type_id' => $type_id
