@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
   public function index()
   {
-    $data = DB::table('products')->select('*')->get();
+    $data = DB::table('products')->select('*')->where('active', 1)->get();
 
     // $products = Product::all();
     return response()->json([
@@ -43,6 +43,7 @@ class ProductController extends Controller
     $product_price = $request->input('product_price');
     $product_key = $request->input('product_key');
     $catagory_id = $request->input('catagory_id');
+    $type_id = $request->input('type_id');
     try {
 
       if ($request->file('file')) {
@@ -57,6 +58,7 @@ class ProductController extends Controller
           'product_price' => $product_price,
           'product_key' => $product_key,
           'catagory_id' => $catagory_id,
+          'type_id' => $type_id,
           'name_pic' => $filename,
           'file_path' => $location
         ]);
@@ -67,7 +69,8 @@ class ProductController extends Controller
           'product_name' => $product_name,
           'product_price' => $product_price,
           'product_key' => $product_key,
-          'catagory_id' => $catagory_id
+          'catagory_id' => $catagory_id,
+          'type_id' => $type_id
         ]);
       }
 
