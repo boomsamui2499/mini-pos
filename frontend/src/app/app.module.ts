@@ -13,6 +13,7 @@ import { CategoryComponent } from './category/category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { PosSaleComponent } from './pos-sale/pos-sale.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
     CategoryComponent,
     AddCategoryComponent,
     EditProductComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    PosSaleComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,8 @@ import { CategoryComponent } from './category/category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 
+import { PosSaleComponent } from './pos-sale/pos-sale.component';
+
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path: 'category', component: CategoryComponent},
   {path: 'category_create', component: AddCategoryComponent},
   {path: 'category_edit/:id', component: EditCategoryComponent},
+
+  {path: 'pos_sale', component: PosSaleComponent}
 ];
 
 @NgModule({
