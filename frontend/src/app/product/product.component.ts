@@ -8,10 +8,20 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class ProductComponent implements OnInit {
 
+  constructor(private apiServiceService:ApiServiceService) { 
+
+  }
+
   productList: any;
-  constructor(
-    private apiServiceService:ApiServiceService,
-    ) { }
+  
+  ngOnInit(): void {
+    this.apiServiceService.getProduct().subscribe(data => {
+      this.productList = data;
+      this.productList = this.productList.data
+      console.log(this.productList);     
+    })
+  }
+
   editProduct() {
     console.log('edit');
     
@@ -21,14 +31,6 @@ export class ProductComponent implements OnInit {
     this.apiServiceService.deleteProduct(id, 'delete').subscribe(res => {
       console.log(res);
       
-    })
-  }
-
-  ngOnInit(): void {
-    this.apiServiceService.getProduct().subscribe(data => {
-      this.productList = data;
-      this.productList = this.productList.data
-      console.log(this.productList);     
     })
   }
 
