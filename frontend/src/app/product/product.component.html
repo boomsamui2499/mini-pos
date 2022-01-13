@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #464646;">
+    <div class="container">
+        <a class="navbar-brand" href="#">Home</a>
+    </div>
+</nav>
+<div class="container bg-light my-4" style="height: 500px;padding: 12px;">
+    <div class="sidenav">
+        <a>สินค้า</a>
+        <a href="/category">หมวดหมู่</a>
+    </div>
+
+    <div class="table-top">
+        <a href="/product_create" class="btn btn-primary" style="margin: 5px 0px 15px 0px; float: right;">+ เพิ่มใหม่</a>
+        <table class="table-products">
+            <tr>
+                <th>#</th>
+                <th>รูป</th>
+                <th>ชื่อสินค้า</th>
+                <th>ราคา</th>
+                <th>แก้ไข</th>
+                <th>ลบ</th>
+            </tr>
+            <tr *ngFor="let product of productList">
+                <th>{{ product.product_id }}</th>
+                <th></th>
+                <th>{{ product.product_name }}</th>
+                <th>{{ product.product_price }}</th>
+                <th><a class="btn btn-primary" (click)="editProduct()">ลบ</a></th>
+                <th><a class="btn btn-danger" (click)="deleteProduct(product.product_id)">ลบ</a></th>
+            </tr>
+        </table>
+    </div>
+    
+</div>
+
+
+<div class="footer text-center">Mini POS 2022</div>
