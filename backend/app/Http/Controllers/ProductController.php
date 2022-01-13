@@ -28,8 +28,11 @@ class ProductController extends Controller
 
   public function showFitterCatagory($id)
   {
-    $data = DB::table('products')->select('*')->where('active', 1)->where('catagory_id', $id)->get();
 
+    $data = DB::table('products')->select('*')->where('active', 1)->where('catagory_id', $id)->get();
+    if ($id == 0) {
+      $data = DB::table('products')->select('*')->where('active', 1)->get();
+    }
     // $products = Product::all();
     return response()->json([
       "success" => true,
