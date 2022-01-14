@@ -17,8 +17,8 @@
             </form>
         </div>
 
-        <div class="productPool">
-            <div class="product" *ngFor="let product of productList;let i = index" (click)="addProduct(product.product_id)">
+        <div class="productPool" ng-repeat>
+            <div class="product" *ngFor="let product of productList;let i = index" (click)="addProduct(product.product_id, product.product_name, product.product_price)">
                 <div>{{ product.product_id }}</div> <br>
                 <div>{{ product.product_price }}</div> <br>
                 <div>{{ product.product_name }}</div> 
@@ -28,8 +28,11 @@
 
     <div class="onSell">
         <div class="productSell">
-            <div class="contentInside" *ngFor="let divData of dataSource">
-                <div>test</div>
+            <div class="contentInside" *ngFor="let divData of dataSource; let i = index"  id="{{ i }}">
+                <div ng-repeat>
+                    <label>{{ productInBill[i].name }}</label> 
+                    <label>{{ productInBill[i].price }}</label> 
+                </div>
             </div>
         </div>
         <div class="submitSell">

@@ -8,11 +8,14 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class PosSaleComponent implements OnInit {
 
-  productList: any
-  categoryList: any
-  selectedCategory: any
-  selectedProduct: any
-  dataSource: any[] = [];
+  productList: any //เเสดง product
+  categoryList: any //เเสดงชื่อ category
+  selectedCategory: any //เลือก category
+  dataSource: any[] = [] //loop div product ที่กด
+
+  check: Array<{id: any, value: any}> = []
+  productInBill: Array<{id: any, name: any, price:any, amount: number}> = []
+
   constructor(
     private apiServiceService:ApiServiceService,
   ) { }
@@ -41,9 +44,29 @@ export class PosSaleComponent implements OnInit {
     })
   }
 
-  addProduct(id: any) {
-    console.log(id);
-    this.dataSource.push(this.dataSource.length);
+  addProduct(productId: any, productName: any, productPrice: any) {
+    console.log(productId);
+    if (this.check.indexOf(productId) == -1) {
+      this.check.push(productId)
+      console.log('put it');
+      console.log(this.check);   
+
+
+      // var chekObj = {id: productId, value:1}
+      // this.check.push(chekObj)
+      // console.log('put it');
+      // console.log(this.check); 
+
+
+      var obj = {id: productId, name: productName, price:productPrice, amount:1}
+      this.productInBill.push(obj)
+      console.log(this.productInBill);
+      this.dataSource.push(this.dataSource.length); 
+    }
+    else {
+      console.log('alrady have');
+    }
+    
   }
 
 }
