@@ -47,5 +47,9 @@ export class ApiServiceService {
     const endpointURL = this.url + 'catagory/' + data + '/delete'
     return this.http.put(endpointURL, updatedBody)
   }
+
+  showSelectCategory(data: any) {
+    return this.http.get(this.url + 'product/searchCatagory/' + data)
+  }
   
 }

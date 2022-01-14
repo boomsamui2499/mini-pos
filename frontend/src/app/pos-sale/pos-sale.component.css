@@ -11,15 +11,23 @@
     width:100%;
     height:66px;
     border:solid 2px green;
-    text-align:center;
 }
 
-.product {
+.productPool {
     float:left;
     width:100%;
     height:610px;
     border:solid 2px blue;
     text-align:center;
+}
+
+.product {
+    float:left;
+    width:19%;
+    height:150px;
+    border:solid 2px black;
+    text-align:center;
+    margin: 4px;
 }
 
 .onSell {
@@ -29,3 +37,26 @@
     border:solid 2px green;
     text-align:center;
 }
+
+.productSell {
+    overflow: auto;
+    width:100%;
+    height:80%;
+    border:solid 2px darkblue;
+    text-align:center;
+}
+
+.submitSell {
+    width:100%;
+    height:20%;
+    border:solid 2px yellow;
+    text-align:center;
+}
+
+.contentInside{
+    width:80%;
+    height:100px;
+    margin:7px;
+    border:1px solid black;
+    display:inline-flex;
+  }
