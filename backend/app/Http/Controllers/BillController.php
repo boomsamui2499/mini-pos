@@ -185,4 +185,20 @@ class BillController extends Controller
       ]);
     }
   }
+
+  public function showlastbill()
+  {
+    $billdata = DB::table('bill')->orderBy('bill_id', 'desc')->first();
+    $data = DB::table('bill')
+      ->join('bill_detail', 'bill.bill_id', '=', 'bill_detail.bill_id')
+      ->join('products', 'bill_detail.product_id', '=', 'products.product_id')->where('bill.bill_id', $billdata->bill_id)
+      // ->groupBy('bill_detail.bill_id')
+      ->get();
+    // ->orderBy('bill.bill_id', 'desc');
+    return response()->json([
+      "success" => true,
+      "message" => "bill List",
+      "data" => $data
+    ]);
+  }
 }
