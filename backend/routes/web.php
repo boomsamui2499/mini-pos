@@ -42,7 +42,7 @@ Route::put('/catagory/{id}/delete', [CatagoryController::class, 'del']);
 //รายละเอียดบิล
 Route::get('/bill', [BillController::class, 'showbill']);
 Route::get('/billDetail/{bill_id}', [BillController::class, 'showbilldetail']);
-Route::get('/billDetail/add', [BillController::class, 'addbilldetail']);
+Route::get('/bill/add', [BillController::class, 'addbilldetail']);
 
 //บิลปัจจุบัน
 Route::delete('/billCurrent/{id}/delete', [BillController::class, 'delBillCurrent']);
