@@ -89,10 +89,10 @@ class CatagoryController extends Controller
 
   public function del($id)
   {
-    $data = DB::table('catagory')->where('catagory_id', $id)->update(['active' => 0]);
-    $data1 = DB::table('catagory')->select('*')->where('catagory_id', $id)->get();
+    // $data = DB::table('catagory')->where('catagory_id', $id)->update(['active' => 0]);
+    $data = DB::table('catagory')->select('*')->where('catagory_id', $id)->get();
 
-    if ($data1[0]->active == 0) {
+    if ($data[0]->active == 0) {
       $data = DB::table('products')->where('catagory_id', $id)->update(['active' => 0]);
       return response()->json([
         "success" => true,

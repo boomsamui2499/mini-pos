@@ -45,7 +45,8 @@ Route::get('/billDetail/{bill_id}', [BillController::class, 'showbilldetail']);
 Route::post('/billDetail/add', [BillController::class, 'addbilldetail']);
 
 //บิลปัจจุบัน
-Route::get('/billCurrent/{id}/delete', [BillController::class, 'delBillCurrent']);
+Route::delete('/billCurrent/{id}/delete', [BillController::class, 'delBillCurrent']);
 Route::post('/billCurrent/add', [BillController::class, 'addBillCurrent']);
 Route::get('/billCurrent', [BillController::class, 'showbillcurrent']);
 Route::get('/billCurrent/price', [BillController::class, 'showtotalprice']);
+Route::put('/billCurrent/{id}/update', [BillController::class, 'updateBillCurrent']);

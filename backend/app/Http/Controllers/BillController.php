@@ -62,13 +62,38 @@ class BillController extends Controller
 
     $product_id = $request->input('product_id');
     $price = $request->input('price');
+    // $count = $request->input('count');
+    try {
+      $data = DB::table('bill_current')->select('*')->where('product_id', $product_id)->get();
+
+      if ($data->isEmpty()) {
+        DB::table('bill_current')->insert([
+          'product_id' => $product_id,
+          'price' => $price,
+          'count' => 1
+        ]);
+      } else {
+
+        $count = $data[0]->count + 1;
+        DB::table('bill_current')->where('product_id', $product_id)
+          ->update(['count' => $count]);
+      }
+
+      return response()->json([
+        "success" => true,
+        "message" => "successfully.",
+      ]);
+    } catch (\Throwable $e) {
+      throw $e;
+    }
+  }
+
+  public function updateBillCurrent(Request $request, $id)
+  {
+    // $product_id = $request->input('product_id');
     $count = $request->input('count');
     try {
-      DB::table('bill_current')->insert([
-        'product_id' => $product_id,
-        'price' => $price,
-        'count' => $count
-      ]);
+      DB::table('bill_current')->where('product_id', $id)->update(['count' => $count]);
       return response()->json([
         "success" => true,
         "message" => "successfully.",
