@@ -120,7 +120,7 @@ class BillController extends Controller
   {
     $date = Carbon::now()->timezone('Asia/Bangkok')->format('Y-m-d');
     $time = Carbon::now()->timezone('Asia/Bangkok')->format('H:i:s');
-    $payment = $request->input('payment');
+    // $total_price = $request->input('total_price');
 
     $array = array();
     $billcurrentdata = DB::table('bill_current')->get();
@@ -131,7 +131,7 @@ class BillController extends Controller
       DB::table('bill')->insert([
         'date' => $date,
         'time' => $time,
-        'payment' => $Total_price[0]->total
+        'total_price' => $Total_price[0]->total
       ]);
       $billdata = DB::table('bill')->orderBy('bill_id', 'desc')->first();
 
