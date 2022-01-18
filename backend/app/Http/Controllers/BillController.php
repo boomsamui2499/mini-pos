@@ -93,10 +93,10 @@ class BillController extends Controller
     // $product_id = $request->input('product_id');
     $count = $request->input('count');
     try {
-      DB::table('bill_current')->where('product_id', $id)->update(['count' => $count]);
+      DB::table('bill_current')->where('bill_current_id', $id)->update(['count' => $count]);
       return response()->json([
         "success" => true,
-        "message" => "successfully.",
+        "message" => $count,
       ]);
     } catch (\Throwable $e) {
       throw $e;
