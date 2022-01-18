@@ -120,7 +120,7 @@ class BillController extends Controller
     $data =
       DB::table('bill_current')
       ->join('products', 'bill_current.product_id', '=', 'products.product_id')
-      ->select('count', 'product_name', 'price')
+      ->select('bill_current_id', 'count', 'product_name', 'price')
       ->get();
     return response()->json([
       "success" => true,
