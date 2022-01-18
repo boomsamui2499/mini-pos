@@ -30,7 +30,8 @@
             <div class="contentInside"  *ngFor="let productInBill of currentBill;let i = index">
                 <label>{{ productInBill.product_name }}</label>
                 <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x{{ productInBill.count }}</label>
-                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ productInBill.count*productInBill.price }}</label><br>
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ productInBill.count*productInBill.price }}</label><br><br>
+                <a class="btn btn-danger" (click)="open(content, productInBill.price, productInBill.product_name, productInBill.count, productInBill.bill_current_id)">เลือกจำนวน</a>&nbsp;&nbsp;
                 <a class="btn btn-danger" (click)="deleteProductInCurrent(productInBill.bill_current_id)">ลบ</a>
             </div>
         </div>
@@ -44,6 +45,27 @@
 
     <!-- content -->
 </div>
-
-
 <div class="footer text-center">Mini POS 2022</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{ selectedProductInCurrentBill.name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ selectedProductInCurrentBill.price }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <button class="btn btn-outline-dark" (click)="decrease()">-</button>
+          <input type="text" value="{{value.count}}">
+          <button class="btn btn-outline-dark" (click)="increase()">+</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="saveValue()">Save</button>
+      <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+    </div>
+  </ng-template>

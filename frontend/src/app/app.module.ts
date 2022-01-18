@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
+
 import { ProductComponent } from './product/product.component';
 import { HomeComponent } from './home/home.component';
 import { AddProductComponent } from './add-product/add-product.component';
-
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
 import { CategoryComponent } from './category/category.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
@@ -36,7 +36,8 @@ import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.compo
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // NgbModal
   ],
   providers: [],
   bootstrap: [AppComponent]

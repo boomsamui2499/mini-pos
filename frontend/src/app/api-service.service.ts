@@ -66,6 +66,11 @@ export class ApiServiceService {
     return this.http.delete(this.url + 'billCurrent/' + data + '/delete')
   }
 
+  updateProductValue(id: any, data: any) {
+    const endpointURL = this.url + 'billCurrent/' + id + '/update'
+    return this.http.put(endpointURL, data)
+  }
+
   // หน้า payment
   showTotalPrice() {
     return this.http.get(this.url + 'billCurrent/price');
