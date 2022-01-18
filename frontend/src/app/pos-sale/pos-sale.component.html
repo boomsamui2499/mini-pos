@@ -7,7 +7,6 @@
     <!-- content -->
     <div class="listProduct">
         <div class="categorySelect">
-            <!-- <form  #categoryfrom="ngForm" (ngSubmit)="getCategoryFormData(categoryfrom.value)"> -->
             <form>
                 <label>หมวดหมู่</label>
                 <select  [(ngModel)]="selectedCategory" (change)="selectCategoryId()" [ngModelOptions]="{standalone: true}">
@@ -18,7 +17,7 @@
         </div>
 
         <div class="productPool" ng-repeat>
-            <div class="product" *ngFor="let product of productList;let i = index" (click)="addProduct(product.product_id, product.product_name, product.product_price)">
+            <div class="product" *ngFor="let product of productList;let i = index" (click)="addProduct(product.product_id, product.product_price)">
                 <div>{{ product.product_id }}</div> <br>
                 <div>{{ product.product_price }}</div> <br>
                 <div>{{ product.product_name }}</div> 
@@ -27,19 +26,17 @@
     </div>
 
     <div class="onSell">
-        <div class="productSell">
-            <div class="contentInside" *ngFor="let divData of dataSource; let i = index"  id="{{ i }}">
-                <div ng-repeat>
-                    <label>{{ productInBill[i].name }}</label> 
-                    <label>{{ productInBill[i].price }}</label> 
-                </div>
+        <div class="productSell" ng-repeat>
+            <div class="contentInside"  *ngFor="let productInBill of currentBill;let i = index">
+                <label>{{ productInBill.product_name }}</label>
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x{{ productInBill.count }}</label>
+                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ productInBill.count*productInBill.price }}</label><br>
+                <a class="btn btn-danger" (click)="deleteProductInCurrent(productInBill.bill_current_id)">ลบ</a>
             </div>
         </div>
         <div class="submitSell">
-
+            <a href="/payment">ชำระเงิน</a>
         </div>
-        
-
     </div>
 
 

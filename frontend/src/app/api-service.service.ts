@@ -10,7 +10,8 @@ export class ApiServiceService {
   url = 'http://127.0.0.1:8000/'
   
   constructor(private http:HttpClient) { }
-
+ 
+  // หน้าจัดการ product
   getProduct() {
     return this.http.get(this.url + 'product');
   }
@@ -29,7 +30,7 @@ export class ApiServiceService {
     return this.http.put(endpointURL, updatedBody)
   }
 
-
+  // หน้าจัดการ category
   getCategory() {
     return this.http.get(this.url + 'catagory');
   }
@@ -48,8 +49,33 @@ export class ApiServiceService {
     return this.http.put(endpointURL, updatedBody)
   }
 
+  // หน้า pos sale
   showSelectCategory(data: any) {
     return this.http.get(this.url + 'product/searchCatagory/' + data)
   }
+
+  showCurrentBill() {
+    return this.http.get(this.url + 'billCurrent');
+  }
+
+  addProductToCurrentBill(data: any) {
+    return this.http.post(this.url + 'billCurrent/add', data)
+  }
+
+  deleteProductInCurrentBill(data: any) {
+    return this.http.delete(this.url + 'billCurrent/' + data + '/delete')
+  }
+
+  // หน้า payment
+  showTotalPrice() {
+    return this.http.get(this.url + 'billCurrent/price');
+  }
   
+  pay() {
+    return this.http.get(this.url + 'bill/add')
+  }
+
+  showPayingBill() {
+    return this.http.get(this.url + 'billLast')
+  }
 }

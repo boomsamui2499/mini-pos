@@ -1,0 +1,30 @@
+.totalPrice {
+    width:100%;
+    height:10%;
+    border:solid 2px yellow;
+    text-align:center;
+}
+
+.paymentMethod {
+    float:left;
+    width:33%;
+    height:90%;
+    border:solid 2px blue;
+    text-align:center;
+}
+
+.payment {
+    float:left;
+    width:33%;
+    height:90%;
+    border:solid 2px blue;
+    text-align:center;
+}
+
+.submit {
+    float:left;
+    width:33%;
+    height:90%;
+    border:solid 2px red;
+    text-align:center;
+}

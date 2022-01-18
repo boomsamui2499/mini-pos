@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #464646;">
+    <div class="container">
+        <a class="navbar-brand" href="/pos_sale">Back</a>
+    </div>
+</nav>
+<div class="container bg-light my-4" style="height: 700px;padding: 12px;">
+    <!-- content -->
+    <div>วันที่ : {{ bill[0].date }} </div><br>
+    <div>รายการสินค้า</div> <br>
+    <div *ngFor="let product of bill;let i = index">
+        <label>{{ product.product_name }}</label>
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x{{ product.count }}</label>
+        <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ product.count*product.product_price }}</label>
+    </div>
+    <div>รวม : {{ bill[0].total_price }}</div>
+
+
+
+    
+    <!-- content -->
+</div>
+
+
+<div class="footer text-center">Mini POS 2022</div>

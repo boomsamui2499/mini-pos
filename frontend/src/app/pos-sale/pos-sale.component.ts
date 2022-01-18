@@ -10,11 +10,8 @@ export class PosSaleComponent implements OnInit {
 
   productList: any //เเสดง product
   categoryList: any //เเสดงชื่อ category
+  currentBill: any //แสดง current bill
   selectedCategory: any //เลือก category
-  dataSource: any[] = [] //loop div product ที่กด
-
-  check: Array<{id: any, value: any}> = []
-  productInBill: Array<{id: any, name: any, price:any, amount: number}> = []
 
   constructor(
     private apiServiceService:ApiServiceService,
@@ -33,6 +30,12 @@ export class PosSaleComponent implements OnInit {
       this.categoryList = this.categoryList.data
       console.log(this.categoryList);     
     })
+
+    this.apiServiceService.showCurrentBill().subscribe(data => {
+      this.currentBill = data;
+      this.currentBill = this.currentBill.data
+      console.log(this.currentBill);
+    })
   }
 
   selectCategoryId() {
@@ -44,29 +47,34 @@ export class PosSaleComponent implements OnInit {
     })
   }
 
-  addProduct(productId: any, productName: any, productPrice: any) {
-    console.log(productId);
-    if (this.check.indexOf(productId) == -1) {
-      this.check.push(productId)
-      console.log('put it');
-      console.log(this.check);   
-
-
-      // var chekObj = {id: productId, value:1}
-      // this.check.push(chekObj)
-      // console.log('put it');
-      // console.log(this.check); 
-
-
-      var obj = {id: productId, name: productName, price:productPrice, amount:1}
-      this.productInBill.push(obj)
-      console.log(this.productInBill);
-      this.dataSource.push(this.dataSource.length); 
+  addProduct(id: any, price: any) {
+    const product = {
+      product_id: id,
+      price : price
     }
-    else {
-      console.log('alrady have');
-    }
+    console.log(product);
     
+    this.apiServiceService.addProductToCurrentBill(product).subscribe(data => {
+      console.log(data);
+      this.apiServiceService.showCurrentBill().subscribe(data => {
+        this.currentBill = data;
+        this.currentBill = this.currentBill.data
+        console.log(this.currentBill);
+      })
+    })
   }
+
+  deleteProductInCurrent(id: any) {
+    console.log(id);
+    this.apiServiceService.deleteProductInCurrentBill(id).subscribe(data => {
+      console.log(data);
+      this.apiServiceService.showCurrentBill().subscribe(data => {
+        this.currentBill = data;
+        this.currentBill = this.currentBill.data
+        console.log(this.currentBill);
+      })
+    })
+    
+  } 
 
 }

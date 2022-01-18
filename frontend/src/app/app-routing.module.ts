@@ -11,6 +11,8 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 import { PosSaleComponent } from './pos-sale/pos-sale.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path: 'category_create', component: AddCategoryComponent},
   {path: 'category_edit/:id', component: EditCategoryComponent},
 
-  {path: 'pos_sale', component: PosSaleComponent}
+  {path: 'pos_sale', component: PosSaleComponent},
+  {path: 'payment', component: PaymentComponent},
+  {path: 'payment_receipt', component: PaymentReceiptComponent}
 ];
 
 @NgModule({
