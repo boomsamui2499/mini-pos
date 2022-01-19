@@ -20,7 +20,7 @@
     <div class="billDetails">
         <div class="showBill" *ngIf="currDiv == 'click'">
             <h1 style="text-align: center;">{{ billDetails.totalprice }}</h1>
-            <label>{{ billDetails.date }}&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <label>{{ billDetails.date }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <label>{{ billDetails.time }}</label><br>
             <label>รายการสินค้า :</label><br>
             <div *ngFor="let product of selectBill">
