@@ -83,4 +83,13 @@ export class ApiServiceService {
   showPayingBill() {
     return this.http.get(this.url + 'billLast')
   }
+
+  //หน้า bill list
+  showBill() {
+    return this.http.get(this.url + 'bill')
+  }
+
+  showBillById(id: any) {
+    return this.http.get(this.url + 'billDetail/' + id)
+  }
 }

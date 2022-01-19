@@ -14,6 +14,8 @@ import { PosSaleComponent } from './pos-sale/pos-sale.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
 
+import { BillListComponent } from './bill-list/bill-list.component';
+
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -28,7 +30,9 @@ const routes: Routes = [
 
   {path: 'pos_sale', component: PosSaleComponent},
   {path: 'payment', component: PaymentComponent},
-  {path: 'payment_receipt', component: PaymentReceiptComponent}
+  {path: 'payment_receipt', component: PaymentReceiptComponent},
+
+  {path: 'bill_list', component: BillListComponent},
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { PosSaleComponent } from './pos-sale/pos-sale.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.component';
+import { BillListComponent } from './bill-list/bill-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PaymentReceiptComponent } from './payment-receipt/payment-receipt.compo
     EditCategoryComponent,
     PosSaleComponent,
     PaymentComponent,
-    PaymentReceiptComponent
+    PaymentReceiptComponent,
+    BillListComponent
   ],
   imports: [
     BrowserModule,
