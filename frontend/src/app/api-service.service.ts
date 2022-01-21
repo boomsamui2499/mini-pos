@@ -89,6 +89,10 @@ export class ApiServiceService {
     return this.http.get(this.url + 'bill')
   }
 
+  showBillByDate(date: any) {
+    return this.http.get(this.url + 'bill?' + date)
+  }
+
   showBillById(id: any) {
     return this.http.get(this.url + 'billDetail/' + id)
   }
